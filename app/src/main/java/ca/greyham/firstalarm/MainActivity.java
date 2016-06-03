@@ -3,6 +3,7 @@ package ca.greyham.firstalarm;
 import android.app.Activity;
 import android.app.DialogFragment;
 import android.app.FragmentManager;
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.NumberPicker;
@@ -29,8 +30,10 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         numAlarms = numberPicker.getValue();
 
-        DialogFragment newDialogFragment = new TimePickerFragment();
-        newDialogFragment.show(fragmentManager, "timePicker");
+        TimePickerFragment newPickerFragment = new TimePickerFragment();
+        newPickerFragment.setAlarmNumber(numAlarms);
+        newPickerFragment.show(fragmentManager, "timePicker");
     }
+
 
 }
